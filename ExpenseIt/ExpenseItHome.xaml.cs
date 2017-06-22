@@ -24,5 +24,11 @@ namespace ExpenseIt
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var reportPage = new ExpenseReportPage();
+            NavigationService.Navigate(reportPage);
+        }
     }
 }
