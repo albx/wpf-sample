@@ -77,12 +77,14 @@
     <Compile Include="ExpenseReportPage.xaml.cs">
       <DependentUpon>ExpenseReportPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExpenseService.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

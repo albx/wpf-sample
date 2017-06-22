@@ -25,10 +25,11 @@ namespace ExpenseIt
             InitializeComponent();
         }
 
-        public ExpenseReportPage(object data)
+        public ExpenseReportPage(Person data)
             : this()
         {
             DataContext = data;
+            ExpenseGrid.ItemsSource = data.Expenses;
         }
     }
 }

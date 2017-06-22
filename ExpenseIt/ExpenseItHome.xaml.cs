@@ -20,15 +20,24 @@ namespace ExpenseIt
     /// </summary>
     public partial class ExpenseItHome : Page
     {
+        private ExpenseService _service;
+
         public ExpenseItHome()
         {
+            _service = new ExpenseService();
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var reportPage = new ExpenseReportPage(peopleListBox.SelectedItem);
+            var reportPage = new ExpenseReportPage(peopleListBox.SelectedItem as Person);
             NavigationService.Navigate(reportPage);
+        }
+
+        protected override void OnInitialized(EventArgs e)
+        {
+            peopleListBox.ItemsSource = _service.GetExpenses();
+            base.OnInitialized(e);
         }
     }
 }
