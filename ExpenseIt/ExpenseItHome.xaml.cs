@@ -27,7 +27,7 @@ namespace ExpenseIt
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var reportPage = new ExpenseReportPage();
+            var reportPage = new ExpenseReportPage(peopleListBox.SelectedItem);
             NavigationService.Navigate(reportPage);
         }
     }
