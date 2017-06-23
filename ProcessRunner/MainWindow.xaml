@@ -33,12 +33,12 @@
 
             <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
                 <Label VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">Dal</Label>
-                <xctk:DateTimePicker Format="Custom" FormatString="dd/MM/yyyy HH:mm:ss" />
+                <xctk:DateTimePicker Name="StartDate" Format="Custom" FormatString="dd/MM/yyyy HH:mm:ss" />
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
                 <Label VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">Al</Label>
-                <xctk:DateTimePicker Format="Custom" FormatString="dd/MM/yyyy HH:mm:ss" />
+                <xctk:DateTimePicker Name="EndDate" Format="Custom" FormatString="dd/MM/yyyy HH:mm:ss" />
             </StackPanel>
         </Grid>
 

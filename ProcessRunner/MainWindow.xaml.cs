@@ -27,13 +27,31 @@ namespace ProcessRunner
             InitializeComponent();
         }
 
+        protected override void OnInitialized(EventArgs e)
+        {
+            base.OnInitialized(e);
+            DataContext = SetupProcessViewModel.Default();
+            StartDate.Value = (DataContext as SetupProcessViewModel).Start;
+            EndDate.Value = (DataContext as SetupProcessViewModel).End;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var calc = Process.Start("cmd.exe");
-            calc.WaitForExit(5000);
+            var startDate = Convert.ToDateTime(StartDate.Value);
+            var endDate = Convert.ToDateTime(EndDate.Value);
 
-            Thread.Sleep(5000);
-            calc.Kill();
+            var ticks = (endDate - startDate);
+            int ticksMilliseconds = (int)ticks.TotalMilliseconds;
+
+            Task.Delay((startDate - DateTime.Now)).ContinueWith((t) =>
+            {
+                var cmd = Process.Start("cmd.exe");
+                cmd.WaitForExit(ticksMilliseconds);
+
+                //Thread.Sleep(ticksMilliseconds);
+                cmd.Kill();
+                cmd.Close();
+            });
         }
     }
 }
