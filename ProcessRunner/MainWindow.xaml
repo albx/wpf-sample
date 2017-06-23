@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProcessRunner.MainWindow"
+﻿<Window xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="ProcessRunner.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -22,7 +22,27 @@
             </AccessText>
         </Label>
 
-        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center">
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">Dal</Label>
+                <xctk:DateTimePicker Format="Custom" FormatString="dd/MM/yyyy HH:mm:ss" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">Al</Label>
+                <xctk:DateTimePicker Format="Custom" FormatString="dd/MM/yyyy HH:mm:ss" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
             <Button Content="Avvia il processo" Width="200" Height="50" Click="Button_Click"></Button>
         </StackPanel>
     </Grid>
